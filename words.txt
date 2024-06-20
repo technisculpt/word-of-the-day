@@ -16,3 +16,4 @@ kempy
 kited
 loges
 pruta
+gismo

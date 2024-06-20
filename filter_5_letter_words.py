@@ -6,4 +6,4 @@ words = response.text.split('\n') if response.status_code == 200 else print("res
 
 if words:
     with open("five_letter_words.txt", "w") as file:
-        [file.write(word) for word in words if len(word) == 6]
+        [file.write(f"{word}\n") for word in words if len(word) == 6]

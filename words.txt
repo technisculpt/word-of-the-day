@@ -1,6 +1,1 @@
 gismo
-<<<<<<< Updated upstream
-conic
-=======
-weepy
->>>>>>> Stashed changes

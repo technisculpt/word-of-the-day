@@ -26,8 +26,11 @@ const used_words = fs.readFileSync('words.txt', 'utf8').split('\n').filter(Boole
 const words = fs.readFileSync('five_letter_words.txt', 'utf8').split('\n').filter(Boolean);
 const random_word = getRandomWord();
 console.log(random_word);
-random_word.replace('\n', '');
+for (let i = 0; i < random_word.length; i++)
+{
+    console.log(i, random_word[i]);
+}
 let html = fs.readFileSync('index.html', 'utf8');
-html = html.replace(/<h1 id="random-word">.*<\/h1>/, '<h1 id="random-word">${random_word}</h1>');
+html = html.replace(/<h1 id="random-word">.*<\/h1>/, `<h1 id="random-word">${random_word}</h1>`);
 fs.writeFileSync('index.html', html);
 fs.appendFileSync('words.txt', random_word + '\n');

@@ -20,51 +20,22 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Install dependencies
-        run: npm install node-fetch@2
-
       - name: Update word of the day
         run: |
-          const fetch = require('node-fetch');
           const fs = require('fs');
+          const words = fs.readFileSync('five_letter_words.txt', 'utf8').split('\n').filter(Boolean);
+          const randomIndex = Math.floor(Math.random() * words.length);
+          const randomWord = words[randomIndex];
 
-          fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt')
-            .then(response => response.text())
-            .then(data => {
-              const wordArray = data.split('\n');
-
-              function hasVowel(word) {
-                  const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
-                  return [...word].some(char => vowels.has(char));
-              }
-
-              function find5LetterWordsWithVowels() {
-                  return wordArray.filter(word => word.length === 5 && hasVowel(word));
-              }
-
-              function getRandomWord(words) {
-                  const randomIndex = Math.floor(Math.random() * words.length);
-                  return words[randomIndex];
-              }
-
-              const wordsWithVowels = find5LetterWordsWithVowels();
-              const randomWord = getRandomWord(wordsWithVowels);
-              
-              // Read the existing HTML file
-              let html = fs.readFileSync('index.html', 'utf8');
-              
-              // Replace the placeholder word with the new random word
-              html = html.replace(/<h1 id="random-word">.*<\/h1>/, `<h1 id="random-word">${randomWord}</h1>`);
-              
-              // Write the updated HTML back to the file
-              fs.writeFileSync('index.html', html);
-            });
+          let html = fs.readFileSync('index.html', 'utf8');
+          html = html.replace(/<h1 id="random-word">.*<\/h1>/, `<h1 id="random-word">${randomWord}</h1>`);
+          fs.writeFileSync('index.html', html);
+          fs.appendFileSync('words.txt', randomWord + '\n');
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git add index.html
+          git add index.html words.txt
           git commit -m 'Update word of the day'
           git push
-

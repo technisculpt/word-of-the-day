@@ -4,13 +4,17 @@ function getRandomWord()
     let _random_word;
     const maxAttempts = 1000;
     let attempts = 0;
-    do {
+    
+    do
+    {
         _random_index = Math.floor(Math.random() * words.length);
         _random_word = words[_random_index];
         attempts++;
-    } while (used_words.includes(_random_word) && attempts < maxAttempts);
+    }
+    while (used_words.includes(_random_word) && attempts < maxAttempts);
 
-    if (attempts >= maxAttempts) {
+    if (attempts >= maxAttempts)
+    {
         throw new Error('Exceeded maximum attempts to find a new word');
     }
 

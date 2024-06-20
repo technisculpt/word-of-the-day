@@ -14,3 +14,4 @@ elide
 scuff
 kempy
 kited
+loges

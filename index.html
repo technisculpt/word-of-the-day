@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>word of the Day</title>
+    <title>Word of the Day</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -20,20 +20,51 @@
             font-size: 5rem;
             color: #b8a9c9;
             margin: 0;
-            background-color:#622569;
+            background-color: #622569;
             padding: 30px;
             border-radius: 50px;
+            cursor: pointer;
         }
         h2 {
             font-size: 1.8rem;
-            color:  #5b9aa0;
+            color: #5b9aa0;
             margin: 0 0 20px 0;
+        }
+        .fade-out {
+            animation: fadeOut 4s forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        #clipboard-message {
+            font-size: 1rem;
+            color: #5b9aa0;
+            margin-top: 20px;
+            visibility: hidden;
         }
     </style>
 </head>
 <body>
-    <h2>today's word is...</h2>
-    <h1 id="random-word">kited</h1>
+    <h2>Today's word is...</h2>
+    <h1 id="random-word">kited</h1>
+    <div id="clipboard-message">Copied to clipboard</div>
+
+    <script>
+        document.getElementById('random-word').addEventListener('click', function() {
+            var word = this.textContent;
+            navigator.clipboard.writeText(word).then(function() {
+                var message = document.getElementById('clipboard-message');
+                message.style.visibility = 'visible';
+                message.classList.add('fade-out');
+                setTimeout(function() {
+                    message.style.visibility = 'hidden';
+                    message.classList.remove('fade-out');
+                }, 4000);
+            }).catch(function(err) {
+                console.log('Something went wrong', err);
+            });
+        });
+    </script>
 </body>
 </html>
-

@@ -30,7 +30,9 @@ jobs:
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git pull
+          git stash
+          git pull --rebase
+          git stash pop
           git add index.html words.txt
           git commit -m 'Update word of the day'
           git push

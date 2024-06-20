@@ -31,5 +31,6 @@ jobs:
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
+          git pull --rebase
           git commit -am "Update word of the day"
           git push

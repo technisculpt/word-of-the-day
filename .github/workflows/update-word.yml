@@ -2,7 +2,7 @@ name: Update Word of the Day
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   push:
     branches:
       - main
@@ -18,32 +18,30 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Install dependencies
         run: npm install node-fetch
 
       - name: Update word of the day
         run: |
-          node -e "
-          const fs = require('fs');
-          const words = fs.readFileSync('five_letter_words.txt', 'utf8').split('\n').filter(Boolean);
+          node -e '
+          const fs = require("fs");
+          const words = fs.readFileSync("five_letter_words.txt", "utf8").split("\n").filter(Boolean);
           const randomIndex = Math.floor(Math.random() * words.length);
-          console.log(words.length)
-          console.log(words.length)
           console.log(words.length)
           const randomWord = words[randomIndex];
           console.log(randomWord)
-          let html = fs.readFileSync('index.html', 'utf8');
-          html = html.replace(/<h1 id='random-word'>.*<\/h1>/, `<h1 id='random-word'>${randomWord}</h1>`);
-          fs.writeFileSync('index.html', html);
-          fs.appendFileSync('words.txt', randomWord + '\n');
-          "
+          let html = fs.readFileSync("index.html", "utf8");
+          html = html.replace(/<h1 id="random-word">.*<\/h1>/, `<h1 id="random-word">${randomWord}</h1>`);
+          fs.writeFileSync("index.html", html);
+          fs.appendFileSync("words.txt", randomWord + "\n");
+          '
 
       - name: Commit and push changes
         run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
           git add index.html words.txt
-          git commit -m 'Update word of the day'
+          git commit -m "Update word of the day"
           git push

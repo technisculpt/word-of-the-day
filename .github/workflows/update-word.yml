@@ -6,14 +6,15 @@ on:
   push:
     branches:
       - main
-
+permissions:
+  contents: write
 jobs:
   update-word:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -30,7 +31,5 @@ jobs:
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git pull --rebase
-          git add index.html words.txt
-          git commit -m 'Update word of the day'
+          git commit -am "Update word of the day"
           git push

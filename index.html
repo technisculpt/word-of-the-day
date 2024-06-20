@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word of the Day</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 4rem;
+            color: #ff4500;
+            margin: 0;
+        }
+        h2 {
+            font-size: 2rem;
+            color: #1e90ff;
+            margin: 0 0 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Today's word is...</h2>
+    <h1 id="random-word"></h1>
+
+    <script>
+        // Load the word list from a CDN
+        fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt')
+            .then(response => response.text())
+            .then(data => {
+                const wordArray = data.split('\n');
+
+                function hasVowel(word) {
+                    const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+                    return [...word].some(char => vowels.has(char));
+                }
+
+                function find5LetterWordsWithVowels() {
+                    return wordArray.filter(word => word.length === 5 && hasVowel(word));
+                }
+
+                function getRandomWord(words) {
+                    const randomIndex = Math.floor(Math.random() * words.length);
+                    return words[randomIndex];
+                }
+
+                const wordsWithVowels = find5LetterWordsWithVowels();
+                const randomWord = getRandomWord(wordsWithVowels);
+                const wordElement = document.getElementById('random-word');
+                wordElement.textContent = randomWord;
+            });
+    </script>
+</body>
+</html>
+

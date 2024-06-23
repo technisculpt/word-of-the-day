@@ -2,3 +2,4 @@ lunts
 verso
 jehad
 tarte
+picra

@@ -16,3 +16,4 @@ chunk
 softs
 jurel
 dewan
+tyros

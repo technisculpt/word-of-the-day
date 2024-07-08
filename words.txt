@@ -17,3 +17,4 @@ softs
 jurel
 dewan
 tyros
+haves

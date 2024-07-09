@@ -18,3 +18,4 @@ jurel
 dewan
 tyros
 haves
+barer

@@ -20,3 +20,4 @@ tyros
 haves
 barer
 chaps
+clamp

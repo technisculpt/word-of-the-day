@@ -21,3 +21,4 @@ haves
 barer
 chaps
 clamp
+rotan

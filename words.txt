@@ -25,3 +25,4 @@ rotan
 recit
 facks
 emesa
+tsere

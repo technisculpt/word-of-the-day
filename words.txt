@@ -29,3 +29,4 @@ tsere
 anode
 sciot
 chien
+musha

@@ -24,10 +24,9 @@ function getRandomWord()
 const fs = require('fs');
 const used_words = fs.readFileSync('words.txt', 'utf8').split('\n').filter(Boolean);
 const words = fs.readFileSync('valid-wordle-words.txt', 'utf8').split('\n').filter(Boolean);
-const random_word = getRandomWord();
-console.log(random_word);
-const sliced_word = random_word.slice(0, -1);
+const new_word = getRandomWord();
+console.log(new_word);
 let html = fs.readFileSync('index.html', 'utf8');
-html = html.replace(/<h1 id="random-word">.*<\/h1>/, `<h1 id="random-word">${sliced_word}</h1>`);
+html = html.replace(/<h1 id="random-word">.*<\/h1>/, `<h1 id="random-word">${new_word}</h1>`);
 fs.writeFileSync('index.html', html);
-fs.appendFileSync('words.txt', random_word + '\n');
+fs.appendFileSync('words.txt', new_word + '\n');

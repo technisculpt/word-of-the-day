@@ -23,7 +23,7 @@ function getRandomWord()
 
 const fs = require('fs');
 const used_words = fs.readFileSync('words.txt', 'utf8').split('\n').filter(Boolean);
-const words = fs.readFileSync('five_letter_words.txt', 'utf8').split('\n').filter(Boolean);
+const words = fs.readFileSync('valid-wordle-words.txt', 'utf8').split('\n').filter(Boolean);
 const random_word = getRandomWord();
 console.log(random_word);
 const sliced_word = random_word.slice(0, -1);

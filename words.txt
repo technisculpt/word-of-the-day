@@ -58,3 +58,4 @@ glyph
 reame
 clame
 esker
+nsima

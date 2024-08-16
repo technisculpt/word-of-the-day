@@ -60,3 +60,4 @@ clame
 esker
 nsima
 ummas
+arbas

@@ -62,3 +62,4 @@ nsima
 ummas
 arbas
 sidle
+afanc

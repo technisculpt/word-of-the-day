@@ -70,3 +70,4 @@ tawse
 shtar
 inset
 breve
+bomoh

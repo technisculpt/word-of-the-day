@@ -71,3 +71,4 @@ shtar
 inset
 breve
 bomoh
+bonks

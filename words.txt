@@ -80,3 +80,4 @@ abyes
 moses
 sales
 qapik
+kente

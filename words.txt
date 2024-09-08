@@ -83,3 +83,4 @@ qapik
 kente
 bunko
 parid
+kayle

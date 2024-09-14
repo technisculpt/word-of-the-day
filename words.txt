@@ -89,3 +89,4 @@ draps
 ariel
 lunks
 month
+pared

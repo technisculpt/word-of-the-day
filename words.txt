@@ -104,3 +104,4 @@ tanas
 zobos
 papas
 pilis
+burrs

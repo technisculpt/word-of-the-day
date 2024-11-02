@@ -138,3 +138,4 @@ kraft
 funis
 umbra
 pacai
+ginga

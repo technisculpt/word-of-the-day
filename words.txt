@@ -170,3 +170,4 @@ arked
 goves
 troop
 varan
+skort

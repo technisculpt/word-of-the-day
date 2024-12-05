@@ -171,3 +171,4 @@ goves
 troop
 varan
 skort
+tints

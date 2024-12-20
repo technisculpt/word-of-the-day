@@ -186,3 +186,4 @@ koffs
 fumer
 trats
 ihram
+rupee

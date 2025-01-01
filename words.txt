@@ -198,3 +198,4 @@ sonsy
 duras
 saman
 legge
+execs

@@ -199,3 +199,4 @@ duras
 saman
 legge
 execs
+hashy

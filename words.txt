@@ -200,3 +200,4 @@ saman
 legge
 execs
 hashy
+chard
